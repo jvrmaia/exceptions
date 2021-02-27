@@ -1,0 +1,233 @@
+\documentclass[a4paper]{amsart}
+\usepackage[pdftex]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{courier}
+\usepackage{fancyhdr}
+
+\lstset{language=C++}
+\lstset{columns=fullflexible}
+\lstset{basicstyle=\scriptsize\ttfamily}
+\lstset{showspaces=false}
+
+\geometry{landscape}
+\setlength{\topmargin}{-0.25in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\columnsep}{1in}
+\setlength{\columnseprule}{0.2pt}
+\textwidth 9.5in
+
+\pagestyle{fancy}
+\lhead{Universidade Federal do Espírito Santo}
+\chead{}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\newcommand{\includecpp}[3]{
+    \begin{multicols}{2}
+        [\subsection{#1}{}\ ]
+        \lstinputlisting[language=c++]{#2/#3}
+    \end{multicols}
+}
+
+\newcommand{\subincludecpp}[3]{
+    \begin{multicols}{2}
+        [\subsubsection{#1}{}\ ]
+        \lstinputlisting[language=c++]{#2/#3}
+    \end{multicols}
+}
+
+\newcommand{\includelisp}[3]{
+    \begin{multicols}{2}
+        [\subsection{#1}{Hash: \input{#2/.#3.hash}}\ ]
+        \lstinputlisting[language=lisp]{#2/#3}
+    \end{multicols}
+}
+
+\newcommand{\includejava}[3]{
+    \begin{multicols}{2}
+        [\subsection{#1}{}\ ]
+        \lstinputlisting[language=java]{#2/#3}
+    \end{multicols}
+}
+
+\newcommand{\stirlingfirst}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}}
+\newcommand{\stirlingsecond}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
+
+\begin{document}
+\thispagestyle{fancy}
+\begin{center}
+    \Huge\textsc{ACM ICPC Team Reference \\ 2010 }
+
+    \
+
+    \huge Team Exceptions \\ Universidade Federal do Espírito Santo
+
+    \
+
+\end{center}
+
+\section{Configuration files and scripts}
+\includecpp{.vimrc}{../config}{dotvimrc}
+\includecpp{C++ template}{../config}{template.cpp}
+
+\section{Useful functions}
+\includecpp{Replace all occurrences}{../functions/}{replace_all.cpp}
+\includecpp{Replace the first occurrence}{../functions/}{replace.cpp}
+\includecpp{Split on all occurrences}{../functions/}{split_all.cpp}
+\includecpp{Split on first occurrence}{../functions/}{split.cpp}
+
+\section{String}
+\includecpp{Palindrome}{../string}{palindrome.cpp}
+\includecpp{Longest palindrome}{../string}{longest_palindrome.cpp}
+\includecpp{Knuth-Morris-Pratt}{../string}{kmp.cpp}
+\includecpp{Suffix Tree}{../string}{suffix_tree.cpp}
+\includecpp{Regex JAVA}{../string}{Regex.java}
+
+\section{Data structures}
+\includecpp{Union find}{../structures}{union_find.cpp}
+\includecpp{Interval Tree}{../structures}{interval_tree.cpp}
+\includecpp{Range Minimum Query}{../structures}{rmq.cpp}
+\includecpp{Range Maximum Query}{../structures}{rmq2.cpp}
+\includecpp{Trie}{../structures}{trie.cpp}
+
+\section{Dynamic Programming}
+\includecpp{Edit distance}{../dynamic_programming/}{edit_distance.cpp}
+\includecpp{LCS}{../dynamic_programming/}{lcs.cpp}
+\includecpp{LIS}{../dynamic_programming/}{lis.cpp}
+\includecpp{Matrix Chain}{../dynamic_programming/}{matrixchain.cpp}
+\includecpp{Counting change}{../dynamic_programming/}{counting_change.cpp}
+\includecpp{Knapsack}{../dynamic_programming/}{knapsack.cpp}
+
+\section{Math}
+\includecpp{GCD}{../math}{gcd.cpp}
+\includecpp{LCM}{../math}{lcm.cpp}
+\includecpp{EXTGCD}{../math}{extgcd.cpp}
+\includecpp{Binomial}{../math}{binomial.cpp}
+\includecpp{Factorize}{../math}{factorize.cpp}
+\includecpp{Fractional Library}{../math}{frac.cpp}
+\includecpp{Pollard rho}{../math}{pollard.cpp}
+\includecpp{Miller Rabin}{../math}{miller_rabin.cpp}
+\includecpp{Sieve}{../math}{sieve.cpp}
+\includecpp{Carmicheal Lambda function}{../math}{carmichael_lambda.cpp}
+\includecpp{Euler function}{../math}{euler_phi.cpp}
+\includecpp{Floyd cycle detection}{../math}{floyd.cpp}
+\includecpp{invMod}{../math}{inv_mod.cpp}
+\includecpp{sqrtMod}{../math}{sqrt_mod.cpp}
+\includecpp{powMod}{../math}{pow_mod.cpp}
+\includecpp{Jacobi function}{../math}{jacobi.cpp}
+\includecpp{Möbius function}{../math}{mobius.cpp}
+\includecpp{Romberg}{../math}{romberg.cpp}
+\includecpp{Polynomials library}{../math}{polynomials.cpp}
+\includecpp{Simplex}{../math}{simplex.cpp}
+
+%\section{Graph}
+%\includecpp{BFS}{../graph}{bfs.cpp}
+%\includecpp{Bipartite matching}{../graph}{bpm.cpp}
+%\includecpp{DFS}{../graph}{dfs.cpp}
+%\includecpp{Dijkstra}{../graph}{dijkstra.cpp}
+%\includecpp{Floyd Warshall}{../graph}{floyd.cpp}
+%\includecpp{Ford Fulkerson}{../graph}{ford_fulkerson.cpp}
+%\includecpp{Kruskal}{../graph}{kruskal.cpp}
+%\includecpp{Max Flow}{../graph}{max_flow.cpp}
+%\includecpp{Minimum coloring}{../graph}{minimum_coloring.cpp}
+%\includecpp{Minimum cut}{../graph}{minimum_cut.cpp}
+%\includecpp{Strongly Connected Components}{../graph}{scc.cpp}
+%\includecpp{Topological sort}{../graph}{topsort.cpp}
+
+\section{Graph}
+\subsection{Base element}
+\subincludecpp{Global definitions}{../graph}{graph.cpp}
+\subsection{Connected component}
+\subincludecpp{Joint point, connected component decomposition double peak}{../graph}{jointpoint.cpp}
+\subincludecpp{Bridge, a double-edge connected component decomposition}{../graph}{bridge.cpp}
+\subincludecpp{Strongly connected component decomposition}{../graph}{strongly.cpp}
+\subsection{Shortest path}
+\subincludecpp{Single-source shortest path (Dijkstra)}{../graph}{dijkstra.cpp}
+\subincludecpp{Single-source shortest paths (Bellman-Ford)}{../graph}{bellmanford.cpp}
+\subincludecpp{k-shortest path}{../graph}{k_shortest.cpp}
+\subincludecpp{Shortest path between all points for (Johnson)}{../graph}{johnson.cpp}
+\subincludecpp{Shortest path between all points for (Floyd Warshall)}{../graph}{floydwarshall.cpp}
+\subsection{Spanning Tree}
+\subincludecpp{Minimum spanning tree (Prim)}{../graph}{prim.cpp}
+\subincludecpp{Minimum spanning forest (Kruskal)}{../graph}{kruskall.cpp}
+\subincludecpp{Minimum diameter spanning tree (Cuninghame-Green)}{../graph}{cuninghame-green.cpp}
+\subincludecpp{Minimum spanning directed tree (Chu-Liu/Edmonds)}{../graph}{chun-liu-edmond.cpp}
+\subincludecpp{Minimum Steiner tree (Dreyfus-Wagner)}{../graph}{steiner.cpp}
+\subsection{Flow Cut}
+\subincludecpp{Maximum flow (Edmonds-Karp)}{../graph}{edmonds.cpp}
+\subincludecpp{Maximum flow (Dinic)}{../graph}{dinic.cpp}
+\subincludecpp{Maximum flow (Goldberg-Tarjan)}{../graph}{tarjan.cpp}
+\subincludecpp{Undirected graph minimum cut across (Nagamochi-Ibaraki/Stoer-Wagner)}{../graph}{minimum-cut.cpp}
+\subincludecpp{Thurs Gomory-Hu}{../graph}{gomory.cpp}
+\subincludecpp{Minimum cost flow (Primal Dual)}{../graph}{primal-dual.cpp}
+\subsection{Matching}
+\subincludecpp{The maximum bipartite graph matching}{../graph}{bipartite-matching.cpp}
+\subincludecpp{Minimum weight maximum bipartite graph matching}{../graph}{maximum-matching.cpp}
+\subincludecpp{Bipartite graph edge coloring}{../graph}{bipartite-coloring.cpp}
+\subincludecpp{Maximum Matching}{../graph}{maximum-matching.cpp}
+\subincludecpp{Minimum weight maximum matching}{../graph}{minimum-weight-matching.cpp}
+\subsection{Tree}
+\subincludecpp{Tree isomorphism}{../graph}{tree_isomorphism.cpp}
+\subincludecpp{Off-line least common ancestor (Tarjan)}{../graph}{least-common-ancestor.cpp}
+\subincludecpp{Height of the tree}{../graph}{tree-height.cpp}
+\subincludecpp{Tree diameter}{../graph}{tree-diameter.cpp}
+\subsection{Road Tour}
+\subincludecpp{Directed Euler Path}{../graph}{directed-euler.cpp}
+\subincludecpp{Undirected Euler Path}{../graph}{undirected-euler.cpp}
+\subincludecpp{Undirected Chinese Postman problem}{../graph}{undirected-chinese.cpp}
+\subincludecpp{Shortest Hamiltonian}{../graph}{hamilton.cpp}
+\subsection{Other}
+\subincludecpp{Linear extension}{../graph}{topological_sort.cpp}
+\subincludecpp{Graph isomorphism}{../graph}{graph_isomorphism.cpp}
+
+\section{Geometry}
+\includecpp{Base}{../geometry}{base.cpp}
+\includecpp{Functions}{../geometry}{functions.cpp}
+\includecpp{Line intesect}{../geometry}{line_intersect.cpp}
+\includecpp{Closest points}{../geometry}{closest_points.cpp}
+\includecpp{Convex Hull}{../geometry}{convex_hull.cpp}
+\includecpp{Spanning Circle}{../geometry}{spanning_circle.cpp}
+\includecpp{Polygon intersect}{../geometry}{poly_intersect.cpp}
+
+\enlargethispage*{\baselineskip}
+\pagebreak
+
+\section{Useful mathematical facts}
+\begin{multicols}{2}
+    \input{math_facts}
+\end{multicols}
+
+\enlargethispage*{\baselineskip}
+\pagebreak
+
+\section{Mistakes to avoid and strategy hints}
+\begin{multicols}{2}
+    \input{mistakes}
+\end{multicols}
+\enlargethispage*{\baselineskip}
+\pagebreak
+
+\begin{center}
+    \Huge\textsc{ACM ICPC Team Reference - Contents}
+
+    \vspace{0.35cm}
+
+    \huge Team Exceptions \\ Universidade Federal do Espírito Santo
+
+    \vspace{0.35cm}
+
+\end{center}
+
+\begin{multicols}{2}
+    \tableofcontents
+\end{multicols}
+\end{document}
+
